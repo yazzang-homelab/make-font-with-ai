@@ -11,6 +11,7 @@ python -m make_font_with_ai doctor
 ```
 
 Activate `.venv` before the install: `source .venv/bin/activate` on macOS/Linux, `.venv\Scripts\Activate.ps1` in PowerShell, or `.venv\Scripts\activate.bat` in CMD. Python's `py -3` launcher can replace `python` on Windows.
+The first interactive CLI run prints a one-time request (to stderr) to star the GitHub repository; it is recorded in `~/.config/make-font-with-ai/` (`%APPDATA%` on Windows) and never shown again. Set `MFAI_NO_STAR_NOTICE=1` to suppress it entirely. Command output on stdout is unaffected.
 The core uses fontTools, Pillow, FreeType, HarfBuzz, NumPy and JSON Schema. `brush` adds Shapely/SciPy. `trace` adds scikit-image. No browser, cloud account or model API is required to compile a font. The AI host supplies image/vision/authoring capabilities separately.
 
 ## Claude Code plugin

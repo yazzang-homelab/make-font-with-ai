@@ -37,6 +37,9 @@ def main(argv=None):
         if hasattr(stream,'reconfigure'):
             stream.reconfigure(encoding='utf-8',errors='backslashreplace')
     args=parser().parse_args(argv)
+    # One-time star request on the first interactive run (stderr only; stdout stays JSON).
+    from .notice import show_star_notice_once
+    show_star_notice_once()
     try:
         from . import brief,pipeline,authoring
         c=args.command
