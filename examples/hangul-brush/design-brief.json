@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "font": {
+    "family": "AI Brush Study",
+    "version": "1.0",
+    "upm": 1000
+  },
+  "purpose": {
+    "use_case": "noncommercial Korean brush headline study",
+    "typography_role": "display"
+  },
+  "production_kind": "vector",
+  "target": {
+    "engine": "FreeType validation harness",
+    "renderer": "grayscale FreeType raster",
+    "sizes_px": [
+      32,
+      128
+    ],
+    "native_cell_px": null,
+    "antialiasing": true
+  },
+  "metrics": {
+    "ascent": 1040,
+    "descent": -200,
+    "line_gap": 0,
+    "advance": 1000,
+    "spacing": "monospace"
+  },
+  "coverage": {
+    "mode": "ksx1001",
+    "characters": null,
+    "encoding": "unicode"
+  },
+  "reference": {
+    "path": "reference.png",
+    "source": "generated",
+    "permission_confirmed": true,
+    "notes": "Reference rendered from the project-authored R36 engine. This is a specific native-pressure brush family, not arbitrary image style transfer."
+  },
+  "source": {
+    "kind": "r36-hangul",
+    "path": null
+  },
+  "exports": [
+    "ttf"
+  ],
+  "acceptance": {
+    "max_font_bytes": 60000000,
+    "max_center_offset_em": 0.12,
+    "critical_pairs": [
+      "각곽",
+      "가카",
+      "다타",
+      "아애",
+      "갈각",
+      "이아"
+    ],
+    "specimen_text": "한글 붓글씨\n달빛 아래 길을 걸어\n곽 괄 관 권 갈 걸 길 골 굴 글",
+    "style_notes": "Pressure-shaped starts, alternating rieul turns, tapered releases, balanced complete syllables. No equal parallel bars or decorative tails that erase identity."
+  }
+}

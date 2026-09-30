@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "make-font-with-ai"
+version = "0.1.0"
+description = "Reference-driven font engineering with use-case approval, native-grid checks and verified exports"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "PolyForm-Noncommercial-1.0.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{name = "yazzang-homelab"}]
+dependencies = ["fonttools>=4.58,<5", "Pillow>=11,<13", "freetype-py>=2.5,<3", "uharfbuzz>=0.52,<1", "jsonschema>=4.23,<5", "numpy>=2,<3"]
+
+[project.optional-dependencies]
+brush = ["shapely>=2.1,<3", "scipy>=1.15,<2"]
+trace = ["scikit-image>=0.24,<1"]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1", "build>=1,<2"]
+
+[project.scripts]
+mfai = "make_font_with_ai.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 110
+
+[project.urls]
+Repository = "https://github.com/yazzang-homelab/make-font-with-ai"
+Issues = "https://github.com/yazzang-homelab/make-font-with-ai/issues"
+
+[tool.setuptools.package-data]
+make_font_with_ai = ["brief.schema.json", "engines/hangul_brush/artwork/*.json", "engines/hangul_brush/tests/*.txt", "engines/hangul_brush/PROVENANCE.md"]

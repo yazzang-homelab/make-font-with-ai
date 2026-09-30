@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "font": {
+    "family": "Native Sixteen",
+    "version": "1.0",
+    "upm": 1024
+  },
+  "purpose": {
+    "use_case": "noncommercial retro dialogue study",
+    "typography_role": "dialogue"
+  },
+  "production_kind": "bitmap",
+  "target": {
+    "engine": "FreeType test harness",
+    "renderer": "monochrome FreeType raster",
+    "sizes_px": [
+      16,
+      32
+    ],
+    "native_cell_px": [
+      16,
+      16
+    ],
+    "antialiasing": false
+  },
+  "metrics": {
+    "ascent": 896,
+    "descent": -128,
+    "line_gap": 0,
+    "advance": 1024,
+    "spacing": "monospace"
+  },
+  "coverage": {
+    "mode": "custom",
+    "characters": "ABC가각갈곽이출 ",
+    "encoding": "unicode"
+  },
+  "reference": {
+    "path": "reference.png",
+    "source": "owned",
+    "permission_confirmed": true,
+    "notes": "Author-owned geometric/pixel drawing fixture. Not a commercial-font design or a full Hangul pixel family."
+  },
+  "source": {
+    "kind": "bitmap-json",
+    "path": "glyphs.json"
+  },
+  "exports": [
+    "ttf",
+    "atlas"
+  ],
+  "acceptance": {
+    "max_font_bytes": 3000000,
+    "max_center_offset_em": 0.22,
+    "critical_pairs": [
+      "가각",
+      "각갈",
+      "갈곽"
+    ],
+    "specimen_text": "A B C\n가 각 갈 곽\n이 출",
+    "style_notes": "Preserve native single-pixel turns and spacing"
+  }
+}

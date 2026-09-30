@@ -1,0 +1,97 @@
+name: Font pipeline CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: font-ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  core:
+    name: Core / ${{ matrix.os }} / Python ${{ matrix.python }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ['3.11', '3.13']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install source and test dependencies
+        run: python -m pip install -e ".[dev,trace]"
+      - name: Unit and mutation tests
+        run: python -m pytest -q --junitxml=_ci/tests.xml
+      - name: Build and reopen pixel/vector candidates
+        run: python scripts/ci_smoke.py --out _ci
+      - name: Source-only publication audit
+        run: python scripts/audit_repo.py
+      - name: Upload reports and real PNG only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: core-${{ matrix.os }}-py${{ matrix.python }}
+          path: |
+            _ci/*-result.json
+            _ci/tests.xml
+            _ci/proofs/**/*.png
+          if-no-files-found: error
+          retention-days: 14
+  brush:
+    name: Hangul R36 / ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - run: python -m pip install -e ".[brush]"
+      - name: Build Korean brush candidate and run the real specialized gates
+        run: python scripts/ci_smoke.py --brush --out _ci
+      - name: Upload report and first proof only (no fonts)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: brush-${{ matrix.os }}
+          path: |
+            _ci/hangul-brush-result.json
+            _ci/proofs/hangul-brush/size032-page001.png
+            _ci/proofs/hangul-brush/size128-page001.png
+          if-no-files-found: error
+          retention-days: 14
+  agreement:
+    name: Exact cross-platform semantic agreement
+    needs: [core, brush]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: evidence
+      - name: Compare whole expanded-glyph fingerprints, not font byte hashes
+        shell: python
+        run: |
+          import json,pathlib,collections
+          groups=collections.defaultdict(list)
+          for p in pathlib.Path('evidence').rglob('*-result.json'):
+              r=json.loads(p.read_text())
+              assert r['pass'] is True
+              groups[r['example']].append(r)
+          expected={'pixel16':6,'vector':6,'hangul-brush':3}
+          for name,count in expected.items():
+              rows=groups[name]
+              assert len(rows)==count,(name,len(rows),count)
+              hashes={r['semantic_sha256'] for r in rows}
+              assert len(hashes)==1,(name,hashes)
+              print(name,count,'actual builds agree:',next(iter(hashes)))

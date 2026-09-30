@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yazzang-homelab/make-font-with-ai/schema/design-brief-1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "font": {
+      "type": "object",
+      "properties": {
+        "family": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+(\\.\\d+)?$"
+        },
+        "upm": {
+          "type": "integer",
+          "minimum": 64,
+          "maximum": 16384
+        }
+      },
+      "required": [
+        "family",
+        "version",
+        "upm"
+      ],
+      "additionalProperties": false
+    },
+    "purpose": {
+      "type": "object",
+      "properties": {
+        "use_case": {
+          "type": "string",
+          "minLength": 1
+        },
+        "typography_role": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "use_case",
+        "typography_role"
+      ],
+      "additionalProperties": false
+    },
+    "production_kind": {
+      "enum": [
+        "bitmap",
+        "vector"
+      ]
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "engine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "renderer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sizes_px": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 4,
+            "maximum": 512
+          },
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true
+        },
+        "native_cell_px": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 4,
+                "maximum": 128
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          ]
+        },
+        "antialiasing": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "engine",
+        "renderer",
+        "sizes_px",
+        "native_cell_px",
+        "antialiasing"
+      ],
+      "additionalProperties": false
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "ascent": {
+          "type": "integer"
+        },
+        "descent": {
+          "type": "integer"
+        },
+        "line_gap": {
+          "type": "integer"
+        },
+        "advance": {
+          "type": "integer"
+        },
+        "spacing": {
+          "enum": [
+            "monospace",
+            "proportional"
+          ]
+        }
+      },
+      "required": [
+        "ascent",
+        "descent",
+        "line_gap",
+        "advance",
+        "spacing"
+      ],
+      "additionalProperties": false
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "custom",
+            "ascii",
+            "ksx1001",
+            "modern_hangul"
+          ]
+        },
+        "characters": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "encoding": {
+          "const": "unicode"
+        }
+      },
+      "required": [
+        "mode",
+        "characters",
+        "encoding"
+      ],
+      "additionalProperties": false
+    },
+    "reference": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "enum": [
+            "owned",
+            "generated",
+            "permitted"
+          ]
+        },
+        "permission_confirmed": {
+          "const": true
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "path",
+        "source",
+        "permission_confirmed",
+        "notes"
+      ],
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "bitmap-json",
+            "vector-json",
+            "r36-hangul"
+          ]
+        },
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "path"
+      ],
+      "additionalProperties": false
+    },
+    "exports": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "ttf",
+          "atlas"
+        ]
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "acceptance": {
+      "type": "object",
+      "properties": {
+        "max_font_bytes": {
+          "type": "integer"
+        },
+        "max_center_offset_em": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 0.5
+        },
+        "critical_pairs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2
+          }
+        },
+        "specimen_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "style_notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "max_font_bytes",
+        "max_center_offset_em",
+        "critical_pairs",
+        "specimen_text",
+        "style_notes"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "font",
+    "purpose",
+    "production_kind",
+    "target",
+    "metrics",
+    "coverage",
+    "reference",
+    "source",
+    "exports",
+    "acceptance"
+  ],
+  "additionalProperties": false
+}

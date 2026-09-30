@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "font": {
+    "family": "Vector Study",
+    "version": "1.0",
+    "upm": 1000
+  },
+  "purpose": {
+    "use_case": "noncommercial display lettering study",
+    "typography_role": "display"
+  },
+  "production_kind": "vector",
+  "target": {
+    "engine": "FreeType test harness",
+    "renderer": "grayscale FreeType raster",
+    "sizes_px": [
+      32,
+      128
+    ],
+    "native_cell_px": null,
+    "antialiasing": true
+  },
+  "metrics": {
+    "ascent": 900,
+    "descent": -100,
+    "line_gap": 0,
+    "advance": 1000,
+    "spacing": "monospace"
+  },
+  "coverage": {
+    "mode": "custom",
+    "characters": "ABC",
+    "encoding": "unicode"
+  },
+  "reference": {
+    "path": "reference.png",
+    "source": "owned",
+    "permission_confirmed": true,
+    "notes": "Author-owned geometric/pixel drawing fixture. Not a commercial-font design or a full Hangul pixel family."
+  },
+  "source": {
+    "kind": "vector-json",
+    "path": "glyphs.json"
+  },
+  "exports": [
+    "ttf"
+  ],
+  "acceptance": {
+    "max_font_bytes": 3000000,
+    "max_center_offset_em": 0.22,
+    "critical_pairs": [],
+    "specimen_text": "ABC\nCAB",
+    "style_notes": "Preserve clean geometric stroke contrast"
+  }
+}

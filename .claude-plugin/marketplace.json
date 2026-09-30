@@ -1,0 +1,17 @@
+{
+  "name": "make-font-with-ai",
+  "owner": {
+    "name": "yazzang-homelab"
+  },
+  "metadata": {
+    "description": "Noncommercial reference-to-font engineering skills"
+  },
+  "plugins": [
+    {
+      "name": "make-font-with-ai",
+      "source": "./",
+      "description": "Reference-first font engineering: usage interview, native-pixel/vector design, real glyph review, and verified TTF builds. Noncommercial source-available.",
+      "version": "0.1.0"
+    }
+  ]
+}
