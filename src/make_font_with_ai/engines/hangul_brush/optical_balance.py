@@ -5,6 +5,7 @@ used ONLY for layout measurement; it never replaces a brush outline. Bounded
 moves keep the original stroke pressure and semantic component identities.
 """
 from functools import lru_cache
+from make_font_with_ai.numeric import font_unit_round
 import numpy as np
 from shapely import contains_xy
 from reference_forms import orientation, CLUSTER
@@ -170,7 +171,7 @@ class InkBalancer:
                 assert abs(b[1]+b[3]-base)<.01
         self.align(allitems,500,30)
         for _,b in allitems:
-            b[:]=[round(z) for z in b]
+            b[:]=[font_unit_round(z) for z in b]
         post=dict(center=self.anchor(allitems),top=self.anchor(top),
                   bottom=self.anchor(bottom) if has else None,
                   final_gap=self.gap(top,bottom,0) if has else None)

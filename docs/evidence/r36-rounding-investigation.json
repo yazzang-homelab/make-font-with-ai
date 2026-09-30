@@ -1,0 +1,26 @@
+{
+  "diagnostic_workflow": "https://github.com/yazzang-homelab/make-font-with-ai/actions/runs/36700045454",
+  "native_reference": {
+    "linux": "d87a903af23b508675e79daeebfcb43c67f5d8c2d997676a1d9242c5d52ea88f",
+    "macos": "4fc5ba1948e039b1cae7cb9de1e0d8a5ce62783728069d7b527431c1ba6ed7c0",
+    "differing_glyph_records": 238,
+    "note": "Includes shared masters and composite references, not this many independently incorrect letters",
+    "differing_table_hashes": []
+  },
+  "stable_construction": {
+    "grid_font_units": 1e-07,
+    "integer_rounding": "ties to even",
+    "linux": "75c5c77c040265c41ee09f21c513fe653baeb50069b52fa1d2ee2da97e89c1af",
+    "macos": "75c5c77c040265c41ee09f21c513fe653baeb50069b52fa1d2ee2da97e89c1af",
+    "differing_glyph_records": 0
+  },
+  "verifier_coordinate_tolerance": 0,
+  "library_versions": {
+    "shapely": "2.1.2",
+    "GEOS": "3.13.1",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "fonttools": "4.66.1"
+  },
+  "release_ci_retest": "required on all three OS; diagnostic agreement is not a substitute"
+}

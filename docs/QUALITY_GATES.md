@@ -21,6 +21,10 @@
 
 This is deliberately conservative. Some harmless representations outside the current canonicalization may still be rejected. The solution is to diagnose the structural difference, not add an unverified raw byte hash or loosen coordinate tolerances. Identical inputs under CRLF vs LF JSON formatting do not cause an invented version failure.
 
+### R36 construction arithmetic
+
+The R36 adapter fixes its final integer-construction policy: round the construction value to 1e-7 font units, then round to an integer with ties to even. This prevents CPU-dependent floating-point approaches to an exact half-unit from choosing opposite integer pixels. It is not a tolerance in verification. A changed final coordinate still fails exact semantic identity. See `docs/evidence/r36-rounding-investigation.json` for the investigated records; the original unnormalized template and the deterministic port are not claimed to have identical byte programs.
+
 ## Negative tests
 
 Tests corrupt native pixels, cmap, one coordinate, candidate bytes, proof PNG, report, coverage, renderer constraints and approvals. They also exercise string `"true"`, stale source, partially accepted review, symlink escape, duplicate JSON keys, invalid legacy encoding and no-overwrite. A process crash is not counted as the intended semantic detection.

@@ -14,12 +14,10 @@ import build_font as legacy
 import optical_balance as balance
 
 def build(mode):
-    if mode=='stable_round7':
-        # Diagnostic implementation alternative, not a relaxed comparison rule.
-        stable=lambda x:builtins.round(builtins.round(float(x),7))
-        legacy.round=stable;balance.round=stable
-    elif mode=='native':
-        legacy.__dict__.pop('round',None);balance.__dict__.pop('round',None)
+    operation=(lambda x:builtins.round(builtins.round(float(x),7))) if mode=='stable_round7' else builtins.round
+    for module in (legacy,balance):
+        if hasattr(module,'font_unit_round'):module.font_unit_round=operation
+        else:module.round=operation
     f,_=legacy.build_font();data=legacy.serialize(f)
     f=TTFont(io.BytesIO(data),recalcTimestamp=False)
     brief=json.loads((ROOT/'examples/hangul-brush/design-brief.json').read_text(encoding='utf-8'))

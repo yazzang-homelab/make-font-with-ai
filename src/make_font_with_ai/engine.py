@@ -7,6 +7,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 from fontTools.fontBuilder import FontBuilder
 from fontTools.pens.ttGlyphPen import TTGlyphPen
@@ -131,9 +132,25 @@ def compile_font(root:Path,b:dict) -> tuple[bytes,dict,dict]:
         with tempfile.TemporaryDirectory(prefix='mfai-brush-') as tmp:
             config=Path(tmp)/'job.json';config.write_text(json.dumps({'characters':characters(b)}))
             out=Path(tmp)/'candidate.ttf';manifest=Path(tmp)/'manifest.json'
-            p=subprocess.run([sys.executable,str(engine/'worker.py'),str(config),str(out),str(manifest)],
-                             capture_output=True,text=True,encoding="utf-8",timeout=1800)
-            require(p.returncode==0,'BRUSH_ENGINE',p.stderr[-4000:] or p.stdout[-4000:])
+            # Stream a heartbeat without assuming that a quiet CPU-bound build is stuck.
+            log=Path(tmp)/'worker.log'
+            with log.open('wb') as handle:
+                process=subprocess.Popen([sys.executable,'-u',str(engine/'worker.py'),str(config),str(out),str(manifest)],
+                                         stdout=handle,stderr=subprocess.STDOUT)
+                started=time.monotonic();next_notice=started+30
+                try:
+                    while process.poll() is None:
+                        elapsed=time.monotonic()-started
+                        require(elapsed<1800,'BRUSH_TIMEOUT','The actual worker exceeded 30 minutes')
+                        if time.monotonic()>=next_notice:
+                            print('[BRUSH_BUILD_RUNNING]',round(elapsed),'seconds; no success assumed',flush=True)
+                            next_notice=time.monotonic()+30
+                        time.sleep(.25)
+                finally:
+                    if process.poll() is None:
+                        process.kill();process.wait()
+            message=log.read_text(encoding='utf-8',errors='replace')
+            require(process.returncode==0,'BRUSH_ENGINE',message[-4000:])
             data=out.read_bytes();meta=read_json(manifest)
         f=TTFont(io.BytesIO(data));f.recalcTimestamp=False
         # Rename only the name table; never rescale reviewed component outlines.

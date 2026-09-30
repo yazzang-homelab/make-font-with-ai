@@ -17,6 +17,7 @@ from shapely.geometry.polygon import orient
 from shapely.ops import unary_union
 from contextual_forms import ContextForms,layout,signature
 from optical_balance import InkBalancer
+from make_font_with_ai.numeric import font_unit_round
 
 ROOT=Path(__file__).resolve().parent
 UPM=1000
@@ -137,7 +138,7 @@ def to_glyph(g):
         for ring in [p.exterior,*p.interiors]:
             pts=[]
             for x,y in list(ring.coords)[:-1]:
-                xy=(round(x),round(y))
+                xy=(font_unit_round(x),font_unit_round(y))
                 if not pts or xy!=pts[-1]:pts.append(xy)
             if len(set(pts))<3:continue
             pen.moveTo(pts[0])
