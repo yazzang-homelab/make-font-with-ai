@@ -18,3 +18,4 @@ _ci/
 .env*
 .DS_Store
 Thumbs.db
+_diagnostic/

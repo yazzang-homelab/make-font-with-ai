@@ -43,6 +43,13 @@ Tracing is a starting outline. It does not invent missing characters or establis
 
 ## Candidate and review loop
 
+### Pilot before full coverage
+
+For a new complex style, create a separate, explicitly scoped pilot project. Test representative glyph families and actual words before generating thousands of combinations. This avoids repeating the earlier failure pattern of fixing one isolated letter while flattening brush pressure or shifting its neighbors.
+
+A Hangul brush pilot should span vertical/horizontal/mixed vowels, absent/single/compound finals, ㄱ/ㅋ corners, ㅐ/ㅔ connections, and ㄹ/ㄺ/ㄻ/ㄿ. A pixel pilot must succeed at its native grid. Review both identity and reference style. The full production brief must not be silently narrowed to make failing glyphs disappear, and its expanded proof set requires separate review.
+
+
 ```sh
 mfai snapshot project --label source-before-candidate
 mfai prepare project

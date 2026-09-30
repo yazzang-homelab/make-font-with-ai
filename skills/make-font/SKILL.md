@@ -31,6 +31,12 @@ When the reference cannot satisfy the use case, explain the conflict and approve
 Any change to cell size, charset, metrics, target renderer or export contract invalidates prior acceptance and requires brief reconfirmation plus relevant regression tests.
 
 ## Stage 2C — Implement and review using the selected profile
+
+### First prove the style and layout on a pilot
+Before expanding a difficult reference to 2350/11172 characters, use an explicitly declared pilot project with representative letters and real words. Include vertical, horizontal and mixed vowels, no-final/single-final/cluster-final syllables, and confusing pairs. For brush Hangul, include ㄱ/ㅋ corners, ㅐ/ㅔ connections and ㄹ/ㄺ/ㄻ/ㄿ turns; compare high-resolution pressure AND small-size gaps. For pixel fonts, prove these at the actual grid before enlargement.
+The pilot needs its own confirmed scope. Never silently delete failing characters from the full production brief or pass the pilot off as full coverage. Judge the reference's stroke mass, taper, direction, open counters, side bearings, upper/final balance and complete-word rhythm together. Do not change a bad ㄹ into three equal bars solely to satisfy a topology oracle.
+If the pilot is not reference-faithful and readable, reject and correct the source before scaling up. A pilot approval does not approve the expanded family; generate full production proofs and perform a new review. Use the host's available independent reviewer when authorized, but do not claim a second reviewer or paid-model invocation that did not occur.
+
 For `bitmap`:
 - Design in the native grid (for example 16x16), including explicit side space and baseline. Do not simply downsample a brush title and label it a completed pixel face.
 - Build identity-correct small Hangul forms and counters for that grid. Check ㄱ/ㅋ, ㄷ/ㅌ, ㅏ/ㅐ, ㅓ/ㅔ and single/compound ㄹ finals at native size.

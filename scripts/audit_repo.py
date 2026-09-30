@@ -19,7 +19,7 @@ def audit():
         data=p.read_bytes();checked+=1
         if p.suffix.lower() in forbidden or data[:4] in magic:bad.append([name,'font/cache binary'])
         if keypat.search(data):bad.append([name,'credential pattern'])
-        if name!= 'scripts/audit_repo.py' and any(s in data for s in (b'/mnt/synology_devdata',b'C:\\Users\\sylee',b'172.30.1.87')):
+        if name!= 'scripts/audit_repo.py' and any(s in data for s in (b'/mnt/synology_devdata',b'C:\\Users\\',b'/home/runner/work/_temp/')):
             bad.append([name,'private machine path'])
     assert not bad,json.dumps(bad)
     print('PUBLICATION_AUDIT_PASS',checked,'source/evidence files; no font binaries or key patterns')
