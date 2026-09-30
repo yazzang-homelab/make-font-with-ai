@@ -53,3 +53,7 @@ Examples are deliberately unapproved: 10 native 16x16 glyphs, a three-glyph vect
 Static TTF and PNG atlas+Unicode mapping only. Pixel TTFs use pixel-aligned outlines, not embedded bitmap font tables. Actual game-engine appearance needs target-runtime testing. No variable/color fonts, OTF/CFF, BDF/FON, old-Hangul generator or legacy-byte-encoding exporter. A hybrid request is two independently approved projects in v0.1.
 
 Commercial use of this software is not granted. Your unrelated original inputs remain yours; do not infer that owning an input authorizes commercial use of the tool or that every output is automatically relicensed. Derived template material and third-party reference rights require separate attention. See [LICENSING](docs/LICENSING.md).
+
+## Executed v0.1.0 validation
+
+The [actual CI run](https://github.com/yazzang-homelab/make-font-with-ai/actions/runs/36701403539) passed all **10 jobs**: 62 tests per core OS/Python job, 12 pixel/vector write-and-reopen builds, three OS builds of the R36 profile, and exact full-semantic agreement. This is executed evidence, not just a configured matrix. See [validation status](docs/VALIDATION_STATUS.md) for tested revision and the earlier Windows encoding/macOS construction fixes. Target-game rendering and OS font installation are separate unperformed tests.

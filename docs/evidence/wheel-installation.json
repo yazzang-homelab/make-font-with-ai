@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "version": "0.1.0",
+  "installed_from_wheel": true,
+  "outside_source_tree": true,
+  "packaged_schema_present": true,
+  "packaged_brush_drawing_data_present": true,
+  "deterministic_numeric_module_present": true,
+  "font_binary_in_wheel": false
+}

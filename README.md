@@ -127,3 +127,9 @@ AI가 검토했다면 `--reviewer-type ai`를 사용합니다. 사람 검토로 
 가변 폰트, 컬러 TTF, OTF/CFF, BDF/FON, 자동 옛한글 조합, Shift-JIS 등 레거시 바이트 인코딩 출력은 지원하지 않습니다. 하이브리드는 각각 승인하는 비트맵·벡터 두 프로젝트로 처리합니다. 숫자 합격이 원본 붓글씨의 미적 재현을 보장하지 않습니다.
 
 [문제 해결](docs/TROUBLESHOOTING.md) · [보안과 데이터](SECURITY.md) · [기여](CONTRIBUTING.md) · [변경 기록](CHANGELOG.md)
+
+## v0.1.0 실제 검증 결과
+
+[실행한 CI](https://github.com/yazzang-homelab/make-font-with-ai/actions/runs/36701403539)에서 **10개 작업 전체 통과**를 확인했습니다. Windows·macOS·Linux × Python 3.11/3.13의 기본 테스트는 각 62개, 픽셀·벡터 12개 실제 빌드와 3개 OS의 R36 한글 빌드를 수행했습니다. 마지막 전체 윤곽·배치·매핑의 구조 지문도 OS 간 정확히 일치했습니다.
+
+설정 파일만 넣고 크로스플랫폼을 주장한 것이 아닙니다. 실패한 Windows 문자 인코딩과 macOS 반올림 경계를 수정한 기록, 실제 CI·최종 파일 저장 영수증은 [검증 상태](docs/VALIDATION_STATUS.md)에 있습니다. 대상 게임 엔진·OS 설치와 모든 생성물의 미감 동등성은 별도 검증입니다.

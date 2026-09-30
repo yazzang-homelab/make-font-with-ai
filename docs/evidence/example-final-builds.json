@@ -1,0 +1,26 @@
+[
+  {
+    "example": "pixel16",
+    "success": true,
+    "mode": "ACTUAL_WRITE_AND_REOPEN",
+    "font_bytes": 3700,
+    "semantic_sha256": "f76a03d00f2d8f9c05e4f9f3247b91cc36123241352cd2f17a1e222748992ec6",
+    "host_os": "Linux",
+    "reviewer_type": "ai",
+    "reviewed_png_count": 5,
+    "target_engine_tested": false,
+    "font_binary_uploaded": false
+  },
+  {
+    "example": "vector",
+    "success": true,
+    "mode": "ACTUAL_WRITE_AND_REOPEN",
+    "font_bytes": 1552,
+    "semantic_sha256": "e2dec7d75f48d9fb62e61442dfaf5865e05b24511552238b7146202310d6371a",
+    "host_os": "Linux",
+    "reviewer_type": "ai",
+    "reviewed_png_count": 4,
+    "target_engine_tested": false,
+    "font_binary_uploaded": false
+  }
+]

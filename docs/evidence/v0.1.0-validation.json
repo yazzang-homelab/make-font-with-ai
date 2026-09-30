@@ -1,0 +1,341 @@
+{
+  "version": "0.1.0",
+  "tested_commit": "a17922b9d566256a181a9844f0a4a5ff00a814e3",
+  "workflow_run_id": 36701403539,
+  "workflow_url": "https://github.com/yazzang-homelab/make-font-with-ai/actions/runs/36701403539",
+  "status": "success",
+  "jobs_passed": 10,
+  "tests_per_core_job": 62,
+  "core_test_jobs": 6,
+  "candidate_builds": 15,
+  "cross_platform_exact_semantic_agreement": true,
+  "os": [
+    "Windows",
+    "macOS",
+    "Linux"
+  ],
+  "python_core": [
+    "3.11",
+    "3.13"
+  ],
+  "python_brush": [
+    "3.13"
+  ],
+  "profiles": {
+    "hangul-brush": [
+      {
+        "example": "hangul-brush",
+        "os": "Darwin",
+        "python": "3.13.15",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 18041716,
+        "raw_sha256": "560b44c844b7899465122cc3ea2d09f545af7934d89d9255ba66025b4b37ef83",
+        "semantic_sha256": "75c5c77c040265c41ee09f21c513fe653baeb50069b52fa1d2ee2da97e89c1af",
+        "character_count": 2350,
+        "raster_cases": 4700,
+        "native_pixel_equality_cases": 0,
+        "specialized_checks": {
+          "rieul": true,
+          "balance": true,
+          "optical": true,
+          "corners": true,
+          "component_visibility": true
+        },
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "hangul-brush",
+        "os": "Linux",
+        "python": "3.13.15",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 18041896,
+        "raw_sha256": "d2cc06740587a885ae66470e37b5636b29d01057d93b4925838f407500436295",
+        "semantic_sha256": "75c5c77c040265c41ee09f21c513fe653baeb50069b52fa1d2ee2da97e89c1af",
+        "character_count": 2350,
+        "raster_cases": 4700,
+        "native_pixel_equality_cases": 0,
+        "specialized_checks": {
+          "rieul": true,
+          "balance": true,
+          "optical": true,
+          "corners": true,
+          "component_visibility": true
+        },
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "hangul-brush",
+        "os": "Windows",
+        "python": "3.13.15",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 18042428,
+        "raw_sha256": "768744ab7f5862b05323b6e86d827be054ddbc2a29e1ace29a16507587c2d612",
+        "semantic_sha256": "75c5c77c040265c41ee09f21c513fe653baeb50069b52fa1d2ee2da97e89c1af",
+        "character_count": 2350,
+        "raster_cases": 4700,
+        "native_pixel_equality_cases": 0,
+        "specialized_checks": {
+          "rieul": true,
+          "balance": true,
+          "optical": true,
+          "corners": true,
+          "component_visibility": true
+        },
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      }
+    ],
+    "pixel16": [
+      {
+        "example": "pixel16",
+        "os": "Windows",
+        "python": "3.11.9",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 3700,
+        "raw_sha256": "0909c67e575d335a4ecfb1a83a46b1a22b8d145cf10a098a0397fdf65951ebb8",
+        "semantic_sha256": "f76a03d00f2d8f9c05e4f9f3247b91cc36123241352cd2f17a1e222748992ec6",
+        "character_count": 10,
+        "raster_cases": 20,
+        "native_pixel_equality_cases": 20,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "pixel16",
+        "os": "Darwin",
+        "python": "3.13.15",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 3700,
+        "raw_sha256": "0909c67e575d335a4ecfb1a83a46b1a22b8d145cf10a098a0397fdf65951ebb8",
+        "semantic_sha256": "f76a03d00f2d8f9c05e4f9f3247b91cc36123241352cd2f17a1e222748992ec6",
+        "character_count": 10,
+        "raster_cases": 20,
+        "native_pixel_equality_cases": 20,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "pixel16",
+        "os": "Windows",
+        "python": "3.13.15",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 3700,
+        "raw_sha256": "0909c67e575d335a4ecfb1a83a46b1a22b8d145cf10a098a0397fdf65951ebb8",
+        "semantic_sha256": "f76a03d00f2d8f9c05e4f9f3247b91cc36123241352cd2f17a1e222748992ec6",
+        "character_count": 10,
+        "raster_cases": 20,
+        "native_pixel_equality_cases": 20,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "pixel16",
+        "os": "Linux",
+        "python": "3.13.15",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 3700,
+        "raw_sha256": "0909c67e575d335a4ecfb1a83a46b1a22b8d145cf10a098a0397fdf65951ebb8",
+        "semantic_sha256": "f76a03d00f2d8f9c05e4f9f3247b91cc36123241352cd2f17a1e222748992ec6",
+        "character_count": 10,
+        "raster_cases": 20,
+        "native_pixel_equality_cases": 20,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "pixel16",
+        "os": "Darwin",
+        "python": "3.11.9",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 3700,
+        "raw_sha256": "0909c67e575d335a4ecfb1a83a46b1a22b8d145cf10a098a0397fdf65951ebb8",
+        "semantic_sha256": "f76a03d00f2d8f9c05e4f9f3247b91cc36123241352cd2f17a1e222748992ec6",
+        "character_count": 10,
+        "raster_cases": 20,
+        "native_pixel_equality_cases": 20,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "pixel16",
+        "os": "Linux",
+        "python": "3.11.16",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 3700,
+        "raw_sha256": "0909c67e575d335a4ecfb1a83a46b1a22b8d145cf10a098a0397fdf65951ebb8",
+        "semantic_sha256": "f76a03d00f2d8f9c05e4f9f3247b91cc36123241352cd2f17a1e222748992ec6",
+        "character_count": 10,
+        "raster_cases": 20,
+        "native_pixel_equality_cases": 20,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      }
+    ],
+    "vector": [
+      {
+        "example": "vector",
+        "os": "Windows",
+        "python": "3.11.9",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 1552,
+        "raw_sha256": "29d6733688dab0a6262c4f47335a44d7c60bd9ed7f3378dbe46847d0299dc5ec",
+        "semantic_sha256": "e2dec7d75f48d9fb62e61442dfaf5865e05b24511552238b7146202310d6371a",
+        "character_count": 3,
+        "raster_cases": 6,
+        "native_pixel_equality_cases": 0,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "vector",
+        "os": "Darwin",
+        "python": "3.13.15",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 1552,
+        "raw_sha256": "29d6733688dab0a6262c4f47335a44d7c60bd9ed7f3378dbe46847d0299dc5ec",
+        "semantic_sha256": "e2dec7d75f48d9fb62e61442dfaf5865e05b24511552238b7146202310d6371a",
+        "character_count": 3,
+        "raster_cases": 6,
+        "native_pixel_equality_cases": 0,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "vector",
+        "os": "Windows",
+        "python": "3.13.15",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 1552,
+        "raw_sha256": "29d6733688dab0a6262c4f47335a44d7c60bd9ed7f3378dbe46847d0299dc5ec",
+        "semantic_sha256": "e2dec7d75f48d9fb62e61442dfaf5865e05b24511552238b7146202310d6371a",
+        "character_count": 3,
+        "raster_cases": 6,
+        "native_pixel_equality_cases": 0,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "vector",
+        "os": "Linux",
+        "python": "3.13.15",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 1552,
+        "raw_sha256": "29d6733688dab0a6262c4f47335a44d7c60bd9ed7f3378dbe46847d0299dc5ec",
+        "semantic_sha256": "e2dec7d75f48d9fb62e61442dfaf5865e05b24511552238b7146202310d6371a",
+        "character_count": 3,
+        "raster_cases": 6,
+        "native_pixel_equality_cases": 0,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "vector",
+        "os": "Darwin",
+        "python": "3.11.9",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 1552,
+        "raw_sha256": "29d6733688dab0a6262c4f47335a44d7c60bd9ed7f3378dbe46847d0299dc5ec",
+        "semantic_sha256": "e2dec7d75f48d9fb62e61442dfaf5865e05b24511552238b7146202310d6371a",
+        "character_count": 3,
+        "raster_cases": 6,
+        "native_pixel_equality_cases": 0,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      },
+      {
+        "example": "vector",
+        "os": "Linux",
+        "python": "3.11.16",
+        "pass": true,
+        "actual_candidate_written_and_reopened": true,
+        "font_bytes": 1552,
+        "raw_sha256": "29d6733688dab0a6262c4f47335a44d7c60bd9ed7f3378dbe46847d0299dc5ec",
+        "semantic_sha256": "e2dec7d75f48d9fb62e61442dfaf5865e05b24511552238b7146202310d6371a",
+        "character_count": 3,
+        "raster_cases": 6,
+        "native_pixel_equality_cases": 0,
+        "specialized_checks": null,
+        "new_visual_review_performed": false,
+        "font_binary_uploaded": false
+      }
+    ]
+  },
+  "tests": [
+    {
+      "artifact": "core-windows-latest-py3.11",
+      "tests": 62,
+      "passed": 62,
+      "skipped": 0,
+      "failures_or_errors": 0
+    },
+    {
+      "artifact": "core-macos-latest-py3.13",
+      "tests": 62,
+      "passed": 62,
+      "skipped": 0,
+      "failures_or_errors": 0
+    },
+    {
+      "artifact": "core-windows-latest-py3.13",
+      "tests": 62,
+      "passed": 62,
+      "skipped": 0,
+      "failures_or_errors": 0
+    },
+    {
+      "artifact": "core-ubuntu-latest-py3.13",
+      "tests": 62,
+      "passed": 62,
+      "skipped": 0,
+      "failures_or_errors": 0
+    },
+    {
+      "artifact": "core-macos-latest-py3.11",
+      "tests": 62,
+      "passed": 62,
+      "skipped": 0,
+      "failures_or_errors": 0
+    },
+    {
+      "artifact": "core-ubuntu-latest-py3.11",
+      "tests": 62,
+      "passed": 62,
+      "skipped": 0,
+      "failures_or_errors": 0
+    }
+  ],
+  "plugin_manifest_strict_validation": true,
+  "marketplace_manifest_strict_validation": true,
+  "actual_target_game_engine_tested": false,
+  "os_font_installation_tested": false,
+  "visual_review_claim": "CI is technical evidence only. Actual example visual review is recorded separately.",
+  "font_binaries_uploaded": false,
+  "created_utc": "2026-09-30T10:29:24.312382+00:00"
+}
