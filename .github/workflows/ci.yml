@@ -85,7 +85,7 @@ jobs:
           import json,pathlib,collections
           groups=collections.defaultdict(list)
           for p in pathlib.Path('evidence').rglob('*-result.json'):
-              r=json.loads(p.read_text())
+              r=json.loads(p.read_text(encoding='utf-8'))
               assert r['pass'] is True
               groups[r['example']].append(r)
           expected={'pixel16':6,'vector':6,'hangul-brush':3}

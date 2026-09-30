@@ -4,7 +4,7 @@ import sys,json
 from build_font import build_font,serialize
 
 def main():
-    job=json.loads(Path(sys.argv[1]).read_text());chars=job['characters']
+    job=json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'));chars=job['characters']
     if not isinstance(chars,str) or not chars:raise ValueError('Missing selected character set')
     # Full source family preserves original modern-Jamo GSUB behavior and lets
     # the original KS X 1001-specific regression suite run without fake subsets.

@@ -55,7 +55,7 @@ def test_release_cannot_use_another_candidates_report(pixel):
 
 
 def test_numeric_coordinate_nan_never_compiles(vector):
-    raw=(vector/'glyphs.json').read_text();raw=raw.replace('140','NaN',1)
+    raw=(vector/'glyphs.json').read_text(encoding='utf-8');raw=raw.replace('140','NaN',1)
     # Invalid SVG syntax as well as JSON nonfinite numbers is rejected.
     (vector/'glyphs.json').write_text(raw)
     with pytest.raises(Exception):compile_font(vector,brief.validate(vector))

@@ -132,7 +132,7 @@ def compile_font(root:Path,b:dict) -> tuple[bytes,dict,dict]:
             config=Path(tmp)/'job.json';config.write_text(json.dumps({'characters':characters(b)}))
             out=Path(tmp)/'candidate.ttf';manifest=Path(tmp)/'manifest.json'
             p=subprocess.run([sys.executable,str(engine/'worker.py'),str(config),str(out),str(manifest)],
-                             capture_output=True,text=True,timeout=1800)
+                             capture_output=True,text=True,encoding="utf-8",timeout=1800)
             require(p.returncode==0,'BRUSH_ENGINE',p.stderr[-4000:] or p.stdout[-4000:])
             data=out.read_bytes();meta=read_json(manifest)
         f=TTFont(io.BytesIO(data));f.recalcTimestamp=False

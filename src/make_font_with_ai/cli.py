@@ -32,6 +32,10 @@ def parser():
 
 
 def main(argv=None):
+    # Redirected Windows streams can otherwise default to a non-Unicode codepage.
+    for stream in (sys.stdout,sys.stderr):
+        if hasattr(stream,'reconfigure'):
+            stream.reconfigure(encoding='utf-8',errors='backslashreplace')
     args=parser().parse_args(argv)
     try:
         from . import brief,pipeline,authoring
